@@ -4,80 +4,8 @@
 <head>
 <meta charset="UTF-8">
     <title> Weather today</title>
-    <style>
-      #title{background-color:rgb(10,252,222);
-              font-style:italic;
-              text-align:center;}
-      #entete{background-color:rgb(10,242,252)}
-      body{background-color:rgb(150,250,250);}
-      .local{background-color:rgb(110,225,195);
-                width:250px;
-                margin :15px;
-                flex-grow:1;}
-      #Melbourne{display:none}
-      #Bejaia{display:none}
-      #Bogota{display:none}
-      .ville{font:bold 18px cursive;}
-      .temps{font:bold 16px fansy;
-        }
-      .location{font:bold 14px monospace;}
-      .lien{font:italic 14px serif}
-      .imglocal{float:left;
-                padding:1px;
-                margin-right:5px;
-                margin-left:0em;}
-      .imhweather{float:left;
-                  position : relative;
-                  left :7px;
-                  top : 0px;
-                  margin-right:1.5em;
-                  }
-      .lien{
-            clear:both;
-          }
-      footer{ background-color:rgb(101,220,180);
-              font:italic 14px serif;
-              margin-top:20px;
-              line-height:1.8em;}
-      .bas{color:brown;font-weight:bold;}
-
-      .flex{display:flex;
-            justify-content:space-evenly;
-            flex-wrap:wrap;
-            }
-      label{
-        font-family:serif;
-        font-size: 1.1rem;
-        padding-right: 10px;
-      }
-	#selection{background:grey;
-		color:white;
-		font:italic 14px fansy;}
-    </style>
-    <script >
-        function showCity() {
-          let villeCourante = document.getElementById("city-select").value;
-          	if(villeCourante!=""){
-            	document.getElementById("selection").innerHTML=" Vous avez séléctionné : "+villeCourante;
-		}
-            else{
-              	document.getElementById("selection").innerHTML=" Vous avez séléctionné : ";
-		}
-          
-         let cities = document.getElementsByClassName("local");
-	 	
-          for(let i=0;i<cities.length;i++){
-		
-            if(cities[i].id== villeCourante){
-		   
-              cities[i].style.display="block";
-            }
-            else{
-              cities[i].style.display="";
-            }
-          }  
-	}
-    </script>
+    <link rel='stylesheet' href='style.css' type='text/css' />
+     <script type="text/javascript" src="script.js"> </script>
     
 </head>
 <body>
