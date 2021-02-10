@@ -14,6 +14,9 @@
                 width:250px;
                 margin :15px;
                 flex-grow:1;}
+      #Melbourne{display:none}
+      #Bejaia{display:none}
+      #Bogota{display:none}
       .ville{font:bold 18px cursive;}
       .temps{font:bold 16px fansy;
         }
@@ -29,51 +32,87 @@
                   top : 0px;
                   margin-right:1.5em;
                   }
-                  .lien{
-                          clear:both;
-                          }
-                  .foot{ background-color:rgb(101,220,180);
-                        font:italic 14px serif}
-                  .bas{color:brown;font-weight:bold;}
+      .lien{
+            clear:both;
+          }
+      footer{ background-color:rgb(101,220,180);
+              font:italic 14px serif;
+              margin-top:20px;
+              line-height:1.8em;}
+      .bas{color:brown;font-weight:bold;}
 
       .flex{display:flex;
             justify-content:space-evenly;
             flex-wrap:wrap;
             }
-    
+      label{
+        font-family:serif;
+        font-size: 1.1rem;
+        padding-right: 10px;
+      }
+	#selection{background:grey;
+		color:white;
+		font:italic 14px fansy;}
     </style>
     <script >
-        let villeCourante = "Melbourne";
-        function showCity() {alert(villeCourante); }
-        
+        function showCity() {
+          let villeCourante = document.getElementById("city-select").value;
+          	if(villeCourante!=""){
+            	document.getElementById("selection").innerHTML=" Vous avez séléctionné : "+villeCourante;
+		}
+            else{
+              	document.getElementById("selection").innerHTML=" Vous avez séléctionné : ";
+		}
+          
+         let cities = document.getElementsByClassName("local");
+	 	
+          for(let i=0;i<cities.length;i++){
+		
+            if(cities[i].id== villeCourante){
+		   
+              cities[i].style.display="block";
+            }
+            else{
+              cities[i].style.display="";
+            }
+          }  
+	}
     </script>
     
 </head>
-
-<body onload="showCity()">
+<body>
 	  <h1 id="title">Météo Cities</h1>
 	  <h4 id="entete"> voici la météo pour des villes choisies aléatoirement selon nos préférences: </h4>
-    <div class="flex">
-        <div class="local"><h3 class="ville">Melbourne </h3>
+    <label for="city-select">Choisir une ville :</label>
+
+    <select name="cities" id="city-select" onchange=showCity()>
+        <option value=""> --Choisissez une ville S.V.P--</option>
+        <option value="Melbourne">Melbourne</option>
+        <option value="Bejaia">Béjaia</option>
+        <option value="Bogota">Bogota</option>
+    </select>
+    <p id="selection"></P>
+        <div class="flex">
+        <div id="Melbourne" class="local"><h3 class="ville">Melbourne </h3>
         <p class="temps">         <img class="imhweather" src="https://static.thenounproject.com/png/88125-200.png" alt="imhweather" width="70" >   28 °C, Ensoleillé </p>
         <p class="location"><img class="imglocal" src="https://static.thenounproject.com/png/3677441-84.png" alt="imglocal"  width="20" >  Australie</p>
 		    <p class="location">Détails<a class="lien" href="https://www.accuweather.com/en/au/melbourne-city-centre/3497808/weather-forecast/3497808"> cliquez ici</a></p>
         </div>
 
-        <div class="local"><h3 class="ville">Béjaïa </h3>
+        <div id="Bejaia" class="local"><h3 class="ville">Béjaïa </h3>
         <p class="temps"><img class="imhweather" src="https://static.thenounproject.com/png/464694-200.png" alt="vega" width="70"> 21 °C, Couvert </p>  
         <p class="location"><img class="imglocal" src="https://static.thenounproject.com/png/3677441-200.png" alt="imglocal" width="20" >  Algérie</p>
 		    <p class="location">Détails<a class="lien" href="https://www.accuweather.com/en/dz/bejaia/2419/weather-forecast/2419"> cliquez ici</a></p>
         </div>
       
-        <div class="local"><h3 class="ville">Bogota </h3>
+        <div id="Bogota" class="local"><h3 class="ville">Bogota </h3>
         <p class="temps"><img class="imhweather" src="https://static.thenounproject.com/png/464689-200.png" alt="bogota" width="70"> 16 °C, Pluvieux </p>    
         <p class="location"><img class="imglocal" src="https://static.thenounproject.com/png/3677441-200.png" alt="imglocal" width="20" >  Colombie</p>
 		    <p class="location">Détails <a class="lien" href="https://www.accuweather.com/en/co/bogota/107487/weather-forecast/107487"> cliquez ici</a></p>
         </div>
     </div>
-    <div class="foot">
+    <footer>
         <p>Réalisé par : <span class="bas">Kamel BELLACHE </span>& <span class="bas">Saîd TIOUCHICHINE </span> <br> Icones météo par: <a href="https://thenounproject.com/coquet_adrien/collection/locations/"> Nook Fulloption</a></p>   
-        </div>
+    </footer>
 </body>
 </html>
